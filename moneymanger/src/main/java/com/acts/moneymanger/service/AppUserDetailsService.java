@@ -13,7 +13,7 @@ import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
-public class AppUserDetailsServie implements UserDetailsService {
+public class AppUserDetailsService implements UserDetailsService {
 
     private final ProfileRepository profileRepository;
 
