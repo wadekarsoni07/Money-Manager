@@ -23,16 +23,16 @@ public class ProfileController {
                 .body(registeredProfile);
     }
 
-        @GetMapping("/activate")
-        public ResponseEntity<String > activateProfile(@RequestParam String token) {
-            boolean isActivated = profileService.activateProfile(token);
-            if (isActivated) {
-                return ResponseEntity.ok("Profile activated successfully");
+    @GetMapping("/activate")
+    public ResponseEntity<String > activateProfile(@RequestParam String token) {
+        boolean isActivated = profileService.activateProfile(token);
+        if (isActivated) {
+            return ResponseEntity.ok("Profile activated successfully");
             } else {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND)
                         .body("Activation token is invalid or expired");
             }
-        }
+    }
 
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody AuthDTO authDTO) {
@@ -50,4 +50,6 @@ public class ProfileController {
             ));
         }
     }
+
+
 }
